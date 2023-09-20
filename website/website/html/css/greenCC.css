@@ -1,0 +1,853 @@
+
+/*background-color: #a1c3e8; /* Darker blue on hover */
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    height: 100%;
+    /*background: linear-gradient(to bottom, #ffffff, #e6f7f7); /* Gradient background */
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.navbar {
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+/* Style for the title on the left */
+.title {
+    float: left; /* Float the title to the left */
+    margin-top: 10px;
+    /*color: #333; /* Dark gray text color */
+    background: linear-gradient(135deg, #477f8c 0%, #3c6c78 100%); /* Adjust the color stops and angle as needed */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Additional styling for your company name */
+    font-size: 33px;
+    font-weight: bold;
+    /* Add any other styles you prefer */
+    font-family: 'GT Walsheim Regular', sans-serif;
+}
+
+/* Style for the navigation menu in the middle */
+.navbar-menu {
+    float: left;
+    margin-top: 10px;
+    margin-left: 30px; /* Add left margin to separate title and menu */
+    margin-bottom: 30px;
+}
+
+/* Style for the login button on the right */
+.login-button-container {
+    margin-left: 100px;
+    margin-top: 15px;
+    float: left;
+}
+
+.login-button {
+    background-color: #00796B; /* Dark teal */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'GT Walsheim Regular', sans-serif;
+}
+
+.login-button:hover {
+    background-color: #005A4E; /* Slightly darker teal on hover */
+    color: #fff;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Style for the navigation links */
+.navbar-menu a {
+    text-align: center;
+    display: inline-block;
+    color: #333; /* Dark gray text color */
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    font-family: 'GT Walsheim Regular', sans-serif;
+}
+
+.navbar-menu a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #00796B; /* Dark teal underline */
+    transition: width 0.3s ease;
+}
+
+.navbar-menu a:hover::after {
+    width: 100%;
+}
+
+/* Rest of your CSS styles... */
+
+
+
+
+
+/* Style for the navigation links and underline */
+.navbar-menu a {
+    text-align: center;
+    display: inline-block;
+    color: #00796B; /* Dark teal text color */
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    font-family: 'GT Walsheim Regular', sans-serif;
+    transition: color 0.3s ease; /* Smooth text color change on hover */
+}
+
+.navbar-menu a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #00796B; /* Dark teal underline */
+    transform: scaleX(0); /* Start with no underline */
+    transform-origin: right;
+    transition: transform 0.3s ease; /* Smooth underline expansion on hover */
+}
+
+.navbar-menu a:hover {
+    color: #009688; /* Light teal text color on hover */
+}
+
+.navbar-menu a:hover::after {
+    transform: scaleX(1); /* Expand the underline on hover */
+    transform-origin: left;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.section1 {
+    display: flex;
+    flex-direction: column;
+    max-width: 850px;
+    align-items: center;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 550;
+    font-family: 'GT Walsheim Regular', sans-serif;
+}
+
+.linear-background{
+    /*background: linear-gradient(to bottom, #E6F7F5, #F5FAF9); /* Light blue-green gradient background */
+}
+
+.preview-button {
+    background-color: #009688; /* Light teal background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.preview-button:hover {
+    background-color: #00796B; /* Darker teal background color on hover */
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+/* The Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #ffffff; /* White background */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #dddddd; /* Light gray border */
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); /* Box shadow for a subtle effect */
+    width: 80%; /* 80% width */
+}
+
+/* Close Button */
+.close {
+    color: #555555; /* Dark gray text color */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #333333; /* Slightly darker gray on hover */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.section1 p {
+    font-size: 18px;
+    color: #333333; /* Dark gray text color */
+}
+
+.section-header {
+    font-size: 28px; /* Increase font size */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333333; /* Dark gray text color */
+}
+
+/* Add a specific style for the highlighted text */
+.highlighted-text {
+    font-size: 36px; /* Adjust the font size as needed */
+    color: #555555; /* Dark gray text color */
+}
+
+.content-container {
+    display: flex;
+    margin-right: 10px;
+    font-weight: 550;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+.button {
+    background-color: #00796B; /* Dark teal */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 20px; /* Rounded edges */
+    padding: 10px 20px;
+    margin: 0 10px; /* Adjust the spacing between buttons */
+    cursor: pointer;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-family: 'GT Walsheim Regular', sans-serif;
+}
+
+/* Hover effect for the buttons */
+.button:hover {
+    background-color: #e0f2f1; /* Icy blue background color on hover */
+    color: black;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.rotate-text {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 10px;
+    font-weight: 550;
+}
+
+.text-top {
+    transform: rotate(-90deg);
+    transform-origin: right center;
+    top: -40px; /* Adjust the vertical position */
+    margin-right: 10px; /* Adjust the horizontal position */
+}
+
+.vertical-line {
+    border-left: 4px solid #477f8c; /* Blue color for the vertical line */
+    height: 100px;
+    margin-right: 10px;
+}
+
+/* CSS styles for the Industries section */
+.industries-section {
+    text-align: center;
+    padding: 20px 0; /* Smaller top and bottom padding */
+    /*background: linear-gradient(to bottom, #f5f5f5, #e0e0e0); /* Reversed gradient with adjusted colors */
+    background: linear-gradient(to bottom, #F5FAF9, #E6F7F5); /* Reversed light blue-green gradient background */
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-family: 'GT Walsheim Regular', sans-serif;
+    color: #333333; /* Dark gray text color */
+}
+
+
+
+
+
+
+
+
+.industry-container {
+    white-space: nowrap; /* Prevent industries from wrapping to the next line */
+    overflow-x: auto; /* Add horizontal scrollbar when necessary */
+}
+
+/* Hide the scrollbar in a container with overflow-x: auto; */
+.industry-container::-webkit-scrollbar {
+    display: none;
+}
+
+.industry-box {
+    display: inline-block;
+    width: 180px; /* Smaller width */
+    padding: 15px; /* Smaller padding */
+    margin: 10px;
+    background-color: #007bff; /* Blue background */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Slightly smaller box shadow */
+    text-align: center;
+    border-radius: 10px; /* Rounded corners */
+    color: #fff; /* White text color */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Add hover styles for the industry boxes */
+.industry-box:hover {
+    background-color: #52a7b3; /* Hover color based on your base color */
+    color: #fff; /* White text color on hover */
+    transform: scale(1.05); /* Increase size on hover */
+}
+
+/* Additional styling for specific industry boxes */
+.finance-box {
+    background-color: #488c99; /* Slightly darker variant of the base color for finance */
+}
+
+.healthcare-box {
+    background-color: #4d9ea6; /* Slightly darker variant of the base color for healthcare */
+}
+
+.food-box {
+    background-color: #4e9fa7; /* Slightly darker variant of the base color for food */
+}
+
+.media-box {
+    background-color: #4994a1; /* Slightly darker variant of the base color for media */
+    width: 200px; /* Smaller width */
+}
+
+.legal-box {
+    background-color: #4a8e9c; /* Slightly darker variant of the base color for legal */
+}
+
+.technology-box {
+    background-color: #477f8c; /* Slightly darker variant of the base color for technology */
+}
+
+.education-box {
+    background-color: #488c99; /* Slightly darker variant of the base color for education */
+}
+
+.retail-box {
+    background-color: #4e9fa7; /* Slightly darker variant of the base color for retail */
+}
+
+.automotive-box {
+    background-color: #4d9ea6; /* Slightly darker variant of the base color for automotive */
+}
+
+.energy-box {
+    background-color: #4994a1; /* Slightly darker variant of the base color for energy */
+}
+
+.real-estate-box {
+    background-color: #4a8e9c; /* Slightly darker variant of the base color for real estate */
+}
+
+.manufacturing-box {
+    background-color: #477f8c; /* Slightly darker variant of the base color for manufacturing */
+}
+
+
+
+
+
+.fitness-monitoring {
+    background-color: #f7f7f7; /* Light gray background */
+    padding: 40px; /* Add some padding for spacing */
+    display: flex; /* Display content in a flex container */
+    align-items: center; /* Center-align content vertically */
+}
+
+.fitness-image {
+    flex: 1; /* Take up available space */
+    text-align: left;
+}
+
+.fitness-image img {
+    max-width: 70%; /* Adjust the image width */
+    height: auto; /* Maintain image aspect ratio */
+    border-radius: 10px; /* Add rounded corners to the image */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the image */
+}
+
+.fitness-content {
+    flex: 1; /* Take up available space */
+    text-align: left;
+    padding-left: 20px; /* Adjust the left padding to control the space */
+    font-family: 'GT Walsheim Regular', sans-serif;
+
+}
+
+/* Add hover effect to the image (optional) */
+.fitness-image img:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+
+
+.learn-more-button {
+    background-color: #ddd; /* Slightly darker gray background color */
+    color: #333; /* Dark gray text color */
+    border: none;
+    border-radius: 20px;
+    padding: 12px 24px; /* Adjust padding as needed */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+    font-family: 'GT Walsheim Regular', sans-serif;
+}
+
+.learn-more-button:hover {
+    background-color: #00796B; /* Dark teal */
+    color: #fff; /* White text color */
+    transform: scale(1.05); /* Increase size on hover */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+
+}
+
+
+
+
+
+.finance-monitoring {
+    background-color: #f7f7f7; /* Light gray background */
+    padding: 40px; /* Add some padding for spacing */
+    display: flex; /* Display content in a flex container */
+    align-items: center; /* Center-align content vertically */
+    margin-bottom:20px;
+}
+
+.finance-image {
+    flex: 1; /* Take up available space */
+    text-align: right;
+}
+
+.finance-image img {
+    max-width: 75%; /* Adjust the image width */
+    height: auto; /* Maintain image aspect ratio */
+    border-radius: 10px; /* Add rounded corners to the image */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the image */
+}
+
+.finance-content {
+    flex: 1; /* Take up available space */
+    text-align: left;
+    padding-left: 20px; /* Adjust the left padding to control the space */
+    font-family: 'GT Walsheim Regular', sans-serif;
+}
+
+/* Add hover effect to the image (optional) */
+.finance-image img:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+
+.read-case-studies-button-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.read-case-studies-button {
+    background-color: #52a7b3; /* Your desired background color */
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 24px; /* Adjust padding as needed */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+    font-family: 'GT Walsheim Regular', sans-serif;
+}
+
+.read-case-studies-button:hover {
+    background-color: #347f89; /* Your desired background color */
+    color: #fff; /* White text color on hover */
+    transform: scale(1.05); /* Increase size on hover */
+}
+
+
+
+
+.subscription-container {
+    color: #fff;
+    background-color: #95a2b3;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px; /* Increase the width */
+    margin: 0 auto;
+}
+
+#subscription-form {
+    width: 100%;
+    text-align: left;
+}
+
+#subscription-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#subscription-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+#subscription-form button[type="submit"] {
+    background-color: #ffeaa0; /* Subtle yellowish color on hover */
+    color: black; /* White text color on hover */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+#subscription-form button[type="submit"]:hover {
+    background-color: #e1c355; /* Subtle yellowish color on hover */
+    color: black; /* White text color on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+/*.subscription-container {
+   /* background-color: #E6F7F5; /* Light green background */
+   /* padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 65%;
+    margin: 0 auto; /* Center horizontally */
+  /*  margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center vertically */
+
+
+/*form {
+    width: 100%; /* Ensure the form takes full width of the container */
+   /* max-width: 300px; /* Adjust the maximum width as needed */
+/*}
+
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #52a7b3; /* Slightly darker green on hover */
+   /* color: #fff; /* White button text color on hover */
+  /*  border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    /*background-color: #ddd; /* Slightly darker gray background color */
+   /* transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+   /* font-family: 'GT Walsheim Regular', sans-serif;
+}
+
+button[type="submit"]:hover {
+    background-color: #ddd; /* Slightly darker green on hover */
+   /* color: black; /* White button text color on hover */
+   /* font-weight: bold;
+}*/
+
+.contact-form-container {
+    /*background-color: #f7f7f7; /* Light gray background color */
+    background-color: #f7f7f7;
+    padding: 10px; /* Reduce padding for a smaller container */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 50%; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center vertically */
+}
+
+#contact-form {
+    width: 100%; /* Ensure the form takes full width of the container */
+    max-width: 300px; /* Adjust the maximum width as needed */
+}
+
+#contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 6px; /* Reduce padding for smaller input fields */
+    margin-bottom: 6px; /* Reduce margin for smaller input fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form textarea {
+    height: 80px; /* Adjust the height as needed */
+}
+
+#contact-form button[type="submit"] {
+    background-color: #52a7b3; /* Your desired background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px; /* Reduce padding for a smaller button */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+}
+
+#contact-form button[type="submit"]:hover {
+    background-color: #007a87; /* New background color on hover */
+    color: #fff; /* Text color on hover */
+}
+
+
+
+
+
+
+
+
+/* CSS styles for the "Machine Learning Models" section */
+.machine-learning-section {
+    padding: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.machine-learning-section .section-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 19px;
+}
+
+.machine-learning-section p {
+    line-height: 1.5;
+    font-size: 19px;
+}
+
+/* CSS styles for the "Deep Learning" section */
+.deep-learning-section {
+    padding: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.deep-learning-section .section-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 19px;
+}
+
+.deep-learning-section p {
+    line-height: 1.5;
+    font-size: 19px;
+}
+
+
+/* Footer Styles */
+footer {
+    margin-top: 35px;
+    background-color: #ecebeb;
+     color: black; /* Text color */
+     text-align: center;
+     padding: 30px 0; /* Padding at the top and bottom */
+ 
+ }
+ 
+ /* Footer Content Container */
+ .footer-content {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     flex-wrap: wrap;
+ }
+ 
+ /* Copyright and Regulatory Info */
+ .copyright,
+ .regulatory-info {
+     flex: 1; /* Equal-width columns */
+     padding: 0 20px; /* Add some spacing */
+ }
+ 
+ .copyright p {
+     font-size: 15px;
+     margin: 0;
+ }
+ 
+ .regulatory-info p {
+     text-align: center;
+     font-size: 15px;
+     margin: 5px 0;
+ }
+ 
+ .regulatory-info a {
+     color:black ; /* Link color */
+     text-decoration: none;
+     transition: color 0.3s ease;
+ }
+ 
+ .regulatory-info a:hover {
+    color: #52a7b3; /* Icy blue color on hover */
+ }
+ 
+ /* Contact Info */
+ .contact-info {
+     flex: 1; /* Equal-width columns */
+     text-align: center; /* Align text to the left */
+     padding: 0 20px; /* Add some spacing */
+ }
+ 
+ .contact-info p {
+     font-size: 15px;
+     margin: 5px 0;
+ }
+ 
+ .contact-info p:hover {
+    color: #52a7b3; /* Icy blue color on hover */
+    cursor: pointer;
+}
+ /* Social Media Icons */
+ .social-media {
+     flex: 1; /* Equal-width columns */
+     text-align: center; /* Align text to the right */
+     padding: 0 20px; /* Add some spacing */
+ }
+ 
+ .social-icon {
+     display: inline-block;
+     font-size: 17px; /* Increase icon size */
+     margin-left: 15px; /* Add spacing between icons */
+     color: black;
+     text-decoration: none;
+     transition: color 0.3s ease;
+ }
+ 
+ .social-icon:first-child {
+     margin-left: 0; /* Remove left margin from the first icon */
+ }
+ 
+ .social-icon:hover {
+    color: #52a7b3; /* Icy blue color on hover */
+ }
+ 
+ /* AI News Section */
+ .ai-news {
+     flex: 1; /* Equal-width columns */
+     text-align: center; /* Align text to the center */
+     padding: 0 20px; /* Add some spacing */
+ }
+ 
+ .ai-news h3 {
+     font-size: 18px;
+     margin: 10px 0;
+     color: #333; /* Dark gray text color */
+ }
+ 
+ .ai-news ul {
+     list-style: none; /* Remove list bullets */
+     padding: 0;
+ }
+ 
+ .ai-news ul li {
+     font-size: 16px;
+     margin: 5px 0;
+ }
+ 
+ .ai-news ul li a {
+     color: black;
+     text-decoration: none;
+     transition: color 0.3s ease;
+ }
+ 
+ .ai-news ul li a:hover {
+    color: #52a7b3; /* Icy blue color on hover */
+ }
+ 
+ /* Footer Headers */
+ .regulatory-info h3,
+ .contact-info h3,
+ .social-media h3 {
+     font-size: 18px; /* Adjust the font size as needed */
+     margin-bottom: 10px; /* Add some spacing below the headers */
+     color: #333; /* Text color for the headers */
+     font-weight: bold; /* Make the headers slightly bold for emphasis */
+     letter-spacing: 0.5px; /* Add a bit of letter-spacing for a subtle effect */
+ }
+ 
